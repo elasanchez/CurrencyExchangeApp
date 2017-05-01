@@ -45,7 +45,7 @@ class favorites
     }
     
 
-    init(_ currencySymbol:Set<String> = [], _ rates: [Int] = [])
+    init(_ currencySymbol:Set<String> = ["USD"], _ rates: [Int] = [1])
     {
         
         self._currencySymbol = currencySymbol

@@ -15,14 +15,14 @@ class FavCurrencyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @IBOutlet var favoriteDisplayLabel: UILabel!
 
-    
+    @IBOutlet var removedFavoritesDisplayLabel: UILabel!
     
     
     
     var currencyDict = ["USD": "United Dollar", "CAD" : "CANADA","EUR" : "EURO", "JPN" : "YEN", "KRW" : "WON"]
     var availableCurrency = ["USD", "CAD", "EUR", "JPN", "KRW"]
     let data = favorites.shared
-    var currentSelection: String = "USD"
+    var currentSelection: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +45,7 @@ class FavCurrencyViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
        for currency in data._currencySymbol
        {
-           favoriteDisplayLabel.text?.append(" \(currency)")
+           favoriteDisplayLabel.text?.append(" \(currency) ")
         }
         
         
@@ -60,7 +60,7 @@ class FavCurrencyViewController: UIViewController, UIPickerViewDelegate, UIPicke
         for fav in data._currencySymbol
         {
             file.append(fav)
-            if !fav.isEmpty
+            if !data._currencySymbol.isEmpty
             {
                 file.append("\n")
             }
@@ -110,7 +110,7 @@ class FavCurrencyViewController: UIViewController, UIPickerViewDelegate, UIPicke
         case 4:
             self.currentSelection = availableCurrency[row]
         default:
-            self.currentSelection = "USD"
+            self.currentSelection = ""
         }
     }
     
@@ -132,6 +132,19 @@ class FavCurrencyViewController: UIViewController, UIPickerViewDelegate, UIPicke
         }
     }
     
+    @IBAction func removeFromFavoritesButton(_ sender: Any)
+    {
+        
+        if(data._currencySymbol.count > 1)
+        {
+            if(data._currencySymbol.contains(currentSelection))
+            {
+                data._currencySymbol.remove(currentSelection)
+                removedFavoritesDisplayLabel.text?.append(" \(currentSelection) ")
+            }
+        }
+
+    }
 }
 
 

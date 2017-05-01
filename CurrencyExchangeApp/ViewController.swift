@@ -25,8 +25,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 
   
     var currencyDict = ["USD": "United Dollar", "CAD" : "CANADA","EUR" : "EURO", "JPN" : "YEN", "KRW" : "WON"]
-    var homeCurrencyId : [String] = []
-    var foreignCurrencyId: [String] = []
+    var homeCurrencyId : [String] = ["USD"]
+    var foreignCurrencyId: [String] = ["USD"]
     
     var homeCurrency : String  = ""
     var foreignCurrency: String = ""
@@ -59,16 +59,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         {
             let path = dir.appendingPathComponent(filename)
-            
+            print(path)
             //reading
             do {
                 let file = try String(contentsOf: path, encoding: String.Encoding.utf8)
                 var myData:[String] = file.components(separatedBy: .newlines)
                 
                 //load currency from file
-                for i in myData.startIndex..<myData.endIndex
+                for i in myData.startIndex..<myData.endIndex-1
                 {
-                    print(myData[i])
+                    //print(myData[i])
                     data._currencySymbol.insert(myData[i])
                     data._rates.append(i)
                 }
@@ -83,8 +83,10 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 {
                     for fav in data._currencySymbol
                     {
+//                        print(">\(fav)")
                         homeCurrencyId.append(fav)
                         foreignCurrencyId.append(fav)
+                        
                     }
                     
                 }
@@ -119,7 +121,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             //writing
             do {
                 try file.write(to: path, atomically: false, encoding: String.Encoding.utf8)
-                print(file)
+                //print(file)
             }
             catch {/* error handling here */}
         }
