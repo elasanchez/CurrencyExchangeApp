@@ -8,25 +8,20 @@
 
 import UIKit
 
-//let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as String
-//let filename = "/favorites.txt"
-//let absPath = path.appending(filename)
-
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
-   
 
     @IBOutlet var homePicker: UIPickerView!
     
     
     @IBOutlet weak var displayLabel: UILabel!
     @IBOutlet weak var foreignDisplayLabel: UILabel!
-    
 
-  
-    var currencyDict = ["USD": "United Dollar", "CAD" : "CANADA","EUR" : "EURO", "JPN" : "YEN", "KRW" : "WON"]
-    var homeCurrencyId : [String] = ["USD"]
-    var foreignCurrencyId: [String] = ["USD"]
+    @IBOutlet var homeTextField: UITextField!
+    
+    @IBOutlet var foreignTextField: UITextField!
+    
+    var homeCurrencyId : [String] = [""]
+    var foreignCurrencyId: [String] = [""]
     
     var homeCurrency : String  = ""
     var foreignCurrency: String = ""
@@ -48,18 +43,19 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         view.addGestureRecognizer(swipeLeft)
         //view.addGestureRecognizer(swipeRight)
         
-        
-        //load data from the model/ text file 
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        //get data before loading everything else
+        getData()
         
         let filename = "favorites.txt"
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         {
             let path = dir.appendingPathComponent(filename)
-            print(path)
+            //
+            (path)
             //reading
             do {
                 let file = try String(contentsOf: path, encoding: String.Encoding.utf8)
@@ -70,7 +66,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 {
                     //print(myData[i])
                     data._currencySymbol.insert(myData[i])
-                    data._rates.append(i)
                 }
                 //clear the list first
                 
@@ -83,12 +78,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 {
                     for fav in data._currencySymbol
                     {
-//                        print(">\(fav)")
                         homeCurrencyId.append(fav)
                         foreignCurrencyId.append(fav)
-                        
                     }
                     
+                    homeCurrency = homeCurrencyId[0]
+                    foreignCurrency = foreignCurrencyId[0]
                 }
             }
             catch
@@ -96,8 +91,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 
             }
         }
+        
         self.homePicker.reloadAllComponents()
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -123,7 +118,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 try file.write(to: path, atomically: false, encoding: String.Encoding.utf8)
                 //print(file)
             }
-            catch {/* error handling here */}
+            catch
+            {
+                /* error handling here */
+                print("Error writing on file.")
+            }
         }
     }
 
@@ -142,7 +141,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         {
             return foreignCurrencyId[row]
         }
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -155,7 +153,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         {
             return self.foreignCurrencyId.count
         }
-        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -197,15 +194,61 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                     self.foreignCurrency = foreignCurrencyId[row]
                 }
             }
-
         }
     }
     
-   
     @IBAction func convertButton(_ sender: Any)
     {
+        var foreignValue: Float
+        let homeForeignString = homeCurrency + foreignCurrency
         displayLabel.text! = homeCurrency
         foreignDisplayLabel.text! = foreignCurrency
+        
+        if(homeTextField.text! != "")
+        {
+            let homeValue = removeSpecialCharsFromString(homeTextField.text!)
+            if(homeValue != "")
+            {
+                foreignValue = Float(homeValue)!
+                let rate = self.data._exchangeRateDict[homeForeignString]!
+                foreignValue = foreignValue * rate
+                
+                let hSymbol = findSymbol(homeCurrency)
+                let fSymbol = findSymbol(foreignCurrency)
+                homeTextField.text! = hSymbol + " \(homeValue)"
+                foreignTextField.text! = fSymbol + " \(foreignValue)"
+            }
+            else{
+                homeTextField.text! = "Invalid Entry"
+                foreignTextField.text! = "No result"
+            }
+        }
+    }
+    
+    func removeSpecialCharsFromString(_ text: String) -> String {
+        let okayChars : Set<Character> =
+            Set("0123456789".characters)
+        return String(text.characters.filter {okayChars.contains($0) })
+    }
+    
+    func findSymbol(_ currency : String) -> String
+    {
+        //["USD", "CAD", "EUR", "JPY", "KRW"]
+        switch currency
+        {
+            case "USD":
+                return "$"
+            case "CAD":
+                return "C$"
+            case "EUR":
+                return "€"
+            case "JPY":
+                return "¥"
+            case "KRW":
+                return "￦"
+            default:
+                return "￦"
+        }
     }
     
     //swipe func
@@ -217,9 +260,47 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     {
         
     }
-    
  
-    
-    
+    func getData()
+    {
+        let myYQL = YQL()
+        let queryString = "select * from yahoo.finance.xchange where pair in (\"USDUSD\",\"USDJPY\", \"USDEUR\", \"USDCAD\", \"USDKRW\", \"JPYUSD\", \"JPYJPY\", \"JPYEUR\", \"JPYCAD\", \"JPYKRW\", \"EURUSD\", \"EURJPY\", \"EUREUR\", \"EURCAD\", \"EURKRW\", \"CADUSD\", \"CADJPY\", \"CADEUR\", \"CADCAD\", \"CADKRW\", \"KRWUSD\", \"KRWJPY\", \"KRWEUR\", \"KRWCAD\", \"KRWKRW\")"
+        
+        
+        // Network session is asyncronous so use a closure to act upon data once data is returned
+        myYQL.query(queryString){ jsonDict in
+            // With the resulting jsonDict, pull values out
+            // jsonDict["query"] results in an Any? object
+            // to extract data, cast to a new dictionary (or other data type)
+            // repeat this process to pull out more specific information
+            let queryDict = jsonDict["query"] as! [String: Any]
+            //print(queryDict["count"]!)
+            //print(queryDict["results"]!)
+            
+            let result = queryDict["results"]! as! [String:Any]
+            //print(result["rate"]!)
+            let rate = result["rate"]! as! [[String: Any]]
+            
+            var index = 0
+            
+            for _ in 0..<25
+            {
+                let name = rate[index]["id"] as! String
+                
+                if let ob = rate[index]["Rate"]! as? String
+                {
+                    let obFloat = Float(ob)
+            
+                    self.data._rates.append(obFloat!)
+                    self.data._exchangeRateDict[name]  = obFloat!
+                }
+                index = index + 1
+            }
+//            for data in self.data._exchangeRateDict
+//            {
+//                print(data)
+//            }
+        }
+    }
 }
 

@@ -15,12 +15,9 @@ class FavCurrencyViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     @IBOutlet var favoriteDisplayLabel: UILabel!
 
-    @IBOutlet var removedFavoritesDisplayLabel: UILabel!
-    
-    
-    
-    var currencyDict = ["USD": "United Dollar", "CAD" : "CANADA","EUR" : "EURO", "JPN" : "YEN", "KRW" : "WON"]
-    var availableCurrency = ["USD", "CAD", "EUR", "JPN", "KRW"]
+    @IBOutlet var removedFavoritesDisplayLabel: UILabel!    
+  
+    var availableCurrency = ["USD", "CAD", "EUR", "JPY", "KRW"]
     let data = favorites.shared
     var currentSelection: String = ""
     
@@ -43,13 +40,11 @@ class FavCurrencyViewController: UIViewController, UIPickerViewDelegate, UIPicke
         
         favoriteDisplayLabel.text = "Favorite: "
         
-       for currency in data._currencySymbol
-       {
-           favoriteDisplayLabel.text?.append(" \(currency) ")
+            for currency in data._currencySymbol
+            {
+                favoriteDisplayLabel.text?.append(" \(currency) ")
+            }
         }
-        
-        
-    }
     
     override func viewWillDisappear(_ animated: Bool) {
         //automatically save data once view disappears
@@ -72,9 +67,11 @@ class FavCurrencyViewController: UIViewController, UIPickerViewDelegate, UIPicke
             //writing
             do {
                 try file.write(to: path, atomically: false, encoding: String.Encoding.utf8)
-                print(file)
+//                print(file)
             }
-            catch {/* error handling here */}
+            catch {/* error handling here */
+                print("Error writing file")
+            }
         }
     }
 
@@ -110,7 +107,7 @@ class FavCurrencyViewController: UIViewController, UIPickerViewDelegate, UIPicke
         case 4:
             self.currentSelection = availableCurrency[row]
         default:
-            self.currentSelection = ""
+            self.currentSelection = self.availableCurrency[0]
         }
     }
     
