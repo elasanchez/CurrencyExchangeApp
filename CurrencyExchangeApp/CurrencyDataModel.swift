@@ -16,8 +16,31 @@ class favorites
     //MARK: singleton
     static let shared = favorites()
     
+    var _exchangeRateNames = ["USDUSD","USDJPY", "USDEUR", "USDCAD", "USDKRW", "JPYUSD", "JPYJPY", "JPYEUR", "JPYCAD", "JPYKRW", "EURUSD", "EURJPY", "EUREUR", "EURCAD", "EURKRW", "CADUSD", "CADJPY", "CADEUR", "CADCAD", "CADKRW", "KRWUSD", "KRWJPY", "KRWEUR", "KRWCAD", "KRWKRW"]
+    
+    var _exchangeRateDict = [String: Float]()
     var _currencySymbol:Set<String>
-    var _rates: [Int]
+    var _rates: [Float]
+    
+    var exchangeDict: [String: Float]
+    {
+        get
+        {
+            return self._exchangeRateDict
+        }
+        set
+        {
+            _exchangeRateDict = newValue
+        }
+    }
+    
+    var currencyName: [String]
+    {
+        get
+        {
+            return self._exchangeRateNames
+        }
+    }
     
     var currencySymbol:Set<String>
     {
@@ -32,7 +55,7 @@ class favorites
     }
     
     
-    var rates: [Int]
+    var rates: [Float]
     {
         get
         {
@@ -45,11 +68,13 @@ class favorites
     }
     
 
-    init(_ currencySymbol:Set<String> = ["USD"], _ rates: [Int] = [1])
+    init(_ currencySymbol:Set<String> = ["USD"], _ rates: [Float] = [1])
     {
         
         self._currencySymbol = currencySymbol
         self._rates = rates
+//        self._exchangeRateDict = exchangeDict
+        
     }
     
     
