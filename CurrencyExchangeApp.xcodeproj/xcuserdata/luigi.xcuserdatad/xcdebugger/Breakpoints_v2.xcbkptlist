@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CurrencyExchangeApp/ViewController.swift"
-            timestampString = "515286313.326736"
+            timestampString = "515575100.096825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "136"
-            endingLineNumber = "136"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
             landmarkName = "pickerView(_:titleForRow:forComponent:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CurrencyExchangeApp/ViewController.swift"
-            timestampString = "515286313.326736"
+            timestampString = "515575100.096825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CurrencyExchangeApp/ViewController.swift"
-            timestampString = "515286313.326736"
+            timestampString = "515550561.752506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "ViewController"
             landmarkType = "3">
             <Locations>
@@ -105,11 +105,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CurrencyExchangeApp/ViewController.swift"
-            timestampString = "515239359.712142"
+            timestampString = "515550561.752506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -169,13 +169,169 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CurrencyExchangeApp/ViewController.swift"
-            timestampString = "515286313.326736"
+            timestampString = "515550561.752506"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "ViewController"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyExchangeApp/ViewController.swift"
+            timestampString = "515575100.096825"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "getData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyExchangeApp/ViewController.swift"
+            timestampString = "515575100.096825"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "306"
+            endingLineNumber = "306">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyExchangeApp/ViewController.swift"
+            timestampString = "515575100.096825"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyExchangeApp/CurrencyDataModel.swift"
+            timestampString = "515533569.30447"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "init(_:_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyExchangeApp.favorites.__allocating_init (Swift.Set&lt;Swift.String&gt;, Swift.Array&lt;Swift.Float&gt;, Swift.Dictionary&lt;Swift.String, Swift.Float&gt;) -&gt; CurrencyExchangeApp.favorites"
+                  moduleName = "CurrencyExchangeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luigi/Desktop/gitWorkspace/CS411%20Assignment1/CurrencyExchangeApp/CurrencyExchangeApp/CurrencyDataModel.swift"
+                  timestampString = "515534590.082586"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyExchangeApp.favorites.(init (Swift.Set&lt;Swift.String&gt;, Swift.Array&lt;Swift.Float&gt;, Swift.Dictionary&lt;Swift.String, Swift.Float&gt;) -&gt; CurrencyExchangeApp.favorites).(default argument 1)"
+                  moduleName = "CurrencyExchangeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luigi/Desktop/gitWorkspace/CS411%20Assignment1/CurrencyExchangeApp/CurrencyExchangeApp/CurrencyDataModel.swift"
+                  timestampString = "515534590.088936"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "11">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyExchangeApp.favorites.(init (Swift.Set&lt;Swift.String&gt;, Swift.Array&lt;Swift.Float&gt;, Swift.Dictionary&lt;Swift.String, Swift.Float&gt;) -&gt; CurrencyExchangeApp.favorites).(default argument 2)"
+                  moduleName = "CurrencyExchangeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luigi/Desktop/gitWorkspace/CS411%20Assignment1/CurrencyExchangeApp/CurrencyExchangeApp/CurrencyDataModel.swift"
+                  timestampString = "515534590.092253"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CurrencyExchangeApp.favorites.init (Swift.Set&lt;Swift.String&gt;, Swift.Array&lt;Swift.Float&gt;, Swift.Dictionary&lt;Swift.String, Swift.Float&gt;) -&gt; CurrencyExchangeApp.favorites"
+                  moduleName = "CurrencyExchangeApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luigi/Desktop/gitWorkspace/CS411%20Assignment1/CurrencyExchangeApp/CurrencyExchangeApp/CurrencyDataModel.swift"
+                  timestampString = "515534590.095302"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "19"
+                  endingLineNumber = "19"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyExchangeApp/ViewController.swift"
+            timestampString = "515575100.096825"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
+            landmarkName = "convertButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CurrencyExchangeApp/ViewController.swift"
+            timestampString = "515575100.096825"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
+            landmarkName = "convertButton(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
