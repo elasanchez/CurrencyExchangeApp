@@ -1,6 +1,7 @@
 # CurrencyExchangeApp
 
 Programmer: Luigi Sanchez
+
 Description: The program is an currency converter between pairs of currencies. i.e., USD as US Dollar to CAD as Canadan Dollar. 
              The application supports euro, US dollar, Candian dollar, Japanese yen, and Korean won as currencies.
              The application utilizes multiple views that switches between main view to favorites view using swipe gesture.
