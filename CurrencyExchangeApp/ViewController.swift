@@ -8,6 +8,10 @@
 
 import UIKit
 
+/*
+            MAIN VIEW CONTROLLER
+ */
+
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet var homePicker: UIPickerView!
@@ -54,8 +58,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
         {
             let path = dir.appendingPathComponent(filename)
-            //
-            (path)
+    
             //reading
             do {
                 let file = try String(contentsOf: path, encoding: String.Encoding.utf8)
@@ -88,7 +91,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             }
             catch
             {/* error handling here */
-                
+                print("Error reading the file.")
             }
         }
         
@@ -213,10 +216,12 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 let rate = self.data._exchangeRateDict[homeForeignString]!
                 foreignValue = foreignValue * rate
                 
+                let foreignValueString = String.localizedStringWithFormat("%.2f %@",foreignValue,"")
+
                 let hSymbol = findSymbol(homeCurrency)
                 let fSymbol = findSymbol(foreignCurrency)
                 homeTextField.text! = hSymbol + " \(homeValue)"
-                foreignTextField.text! = fSymbol + " \(foreignValue)"
+                foreignTextField.text! = fSymbol + foreignValueString
             }
             else{
                 homeTextField.text! = "Invalid Entry"
@@ -224,7 +229,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             }
         }
     }
-    
+    //remove characters that is not in the set
     func removeSpecialCharsFromString(_ text: String) -> String {
         let okayChars : Set<Character> =
             Set("0123456789".characters)
@@ -233,7 +238,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     func findSymbol(_ currency : String) -> String
     {
-        //["USD", "CAD", "EUR", "JPY", "KRW"]
         switch currency
         {
             case "USD":
@@ -244,8 +248,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 return "€"
             case "JPY":
                 return "¥"
-            case "KRW":
-                return "￦"
             default:
                 return "￦"
         }
@@ -258,14 +260,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func unwindToMainMenu(sender: UIStoryboardSegue)
     {
-        
+        //unwind
     }
  
     func getData()
     {
         let myYQL = YQL()
         let queryString = "select * from yahoo.finance.xchange where pair in (\"USDUSD\",\"USDJPY\", \"USDEUR\", \"USDCAD\", \"USDKRW\", \"JPYUSD\", \"JPYJPY\", \"JPYEUR\", \"JPYCAD\", \"JPYKRW\", \"EURUSD\", \"EURJPY\", \"EUREUR\", \"EURCAD\", \"EURKRW\", \"CADUSD\", \"CADJPY\", \"CADEUR\", \"CADCAD\", \"CADKRW\", \"KRWUSD\", \"KRWJPY\", \"KRWEUR\", \"KRWCAD\", \"KRWKRW\")"
-        
         
         // Network session is asyncronous so use a closure to act upon data once data is returned
         myYQL.query(queryString){ jsonDict in
@@ -296,10 +297,6 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 }
                 index = index + 1
             }
-//            for data in self.data._exchangeRateDict
-//            {
-//                print(data)
-//            }
         }
     }
 }
