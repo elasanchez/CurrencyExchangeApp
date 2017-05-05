@@ -9,7 +9,7 @@ Description: The program is an currency converter between pairs of currencies. i
              The application allows currencies to be added or removed from the main view to be used in the conversion of currency.
              And finaly the data loaded from the favorites.txt where user favorites is stored is kept persistent for the life of the 
              program using the singleton pattern.
-             
+                
 References and credit:
   YQL serialization, YQL.swift, is a  Copyright (c) 2017 David McLaren with MIT License.
   
