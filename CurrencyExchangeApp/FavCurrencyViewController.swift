@@ -8,6 +8,10 @@
 
 import UIKit
 
+/*
+            FAVORITE VIEW CONTROLLER
+ */
+
 class FavCurrencyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
   
