@@ -12,7 +12,7 @@ import UIKit
             MAIN VIEW CONTROLLER
  */
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextInputTraits{
 
     @IBOutlet var homePicker: UIPickerView!
     
@@ -33,6 +33,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     let data = favorites.shared
     
     
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -47,6 +48,8 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         view.addGestureRecognizer(swipeLeft)
         //view.addGestureRecognizer(swipeRight)
         
+        
+        homeTextField.keyboardType = UIKeyboardType.numberPad
     }
     
     override func viewWillAppear(_ animated: Bool) {
