@@ -14,12 +14,14 @@ References and credit:
   YQL serialization, YQL.swift, is a  Copyright (c) 2017 David McLaren with MIT License.
   
 
+
+
 Conversion:
 
 <a href="https://imgflip.com/gif/1v3l4n"><img src="https://i.imgflip.com/1v3l4n.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/1v3l5d"><img src="https://i.imgflip.com/1v3l5d.gif" title="made at imgflip.com"/></a>
 
-Modifying Favorite: ADD/REMOVE
+Modifying Favorites: ADD/REMOVE
 
 <a href="https://imgflip.com/gif/1v3la8"><img src="https://i.imgflip.com/1v3la8.gif" title="made at imgflip.com"/></a>
 <a href="https://imgflip.com/gif/1v3lbu"><img src="https://i.imgflip.com/1v3lbu.gif" title="made at imgflip.com"/></a>
