@@ -13,4 +13,10 @@ Description: The program is an currency converter between pairs of currencies. i
 References and credit:
   YQL serialization, YQL.swift, is a  Copyright (c) 2017 David McLaren with MIT License.
   
-<a href="https://imgflip.com/gif/1v3l22"><img src="https://i.imgflip.com/1v3l22.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/1v3l4n"><img src="https://i.imgflip.com/1v3l4n.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/1v3l5d"><img src="https://i.imgflip.com/1v3l5d.gif" title="made at imgflip.com"/></a>
+<a href="https://imgflip.com/gif/1v3la8"><img src="https://i.imgflip.com/1v3la8.gif" title="made at imgflip.com"/></a>
+Remove From Favorites:
+<a href="https://imgflip.com/gif/1v3lbu"><img src="https://i.imgflip.com/1v3lbu.gif" title="made at imgflip.com"/></a>
+Modified Favorite List:
+<a href="https://imgflip.com/gif/1v3ldv"><img src="https://i.imgflip.com/1v3ldv.gif" title="made at imgflip.com"/></a>
